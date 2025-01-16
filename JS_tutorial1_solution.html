@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>JS 1 Tutorial Solution</title>
+  
+</head>
+<body>
+  <div class="h-screen  flex items-center justify-center">
+    <div class="py-16 px-16 bg-gray-400 text-justify max-w-md">
+        <h3 class="font-bold mb-8 text-center">SDPT Solutions</h3>
+        <p class="font-light" id="textMsg"></p>
+    </div>
+  </div>
+  <script>
+
+    let textContainer = document.getElementById("textMsg");
+
+    let nameBoy = "David";
+    let nameGirl = "Alenere";
+    let pronounGirl = "she";
+    let hotDrink = "coffee";
+
+    textContainer.innerHTML = `${nameGirl}, the friendly neighbor, waved at ${nameBoy} as ${pronounGirl} walked by ${nameBoy} house, ${nameBoy} smiled back and invited Alenere in for a cup of ${hotDrink}.`;
+
+    
+  </script>
+</body>
+</html>
