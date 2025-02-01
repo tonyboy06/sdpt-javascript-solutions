@@ -6,68 +6,81 @@
     <title>JS 2 Tutorial Solution</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+  <body>
     <div class="m-8 flex items-center justify-center">
-        <div class="flex flex-col bg-white p-8 w-1/2 items-center">
-            <h1 class="text-4xl font-bold text-center color-white">Grade Average Calculator</h1>
-            <div class="flex flex-   mt-8 w-full mx-auto p-6 shadow-lg rounded-lg">
-                <form class="mx-8 w-1/2" id="sumForm">
-                    <div class="mb-4">
-                        <label for="number" class="block text-sm font-medium text-gray-700">Science</label>
-                        <input type="text" id="num1" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="block text-sm font-medium text-gray-700">Math</label>
-                        <input type="text" id="num2" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="block text-sm font-medium text-gray-700">English</label>
-                        <input type="text" id="num3" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="block text-sm font-medium text-gray-700">Filipino</label>
-                        <input type="text" id="num4" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="block text-sm font-medium text-gray-700">MAPEH</label>
-                        <input type="text" id="num5" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
-                    </div>
-            
-                    <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
-                </form>
-                <div class="flex flex-col bg-black w-1/2 mx-8 text-center text-white items-center justify-center">
-                    <h1 class="text-2xl font-light p-8 capitalize" id="displayAutoText">Your average will display here 😊</h1>
-                    <p class="p-8 capitalize" id="averageText"></p>
-                    <p class="text-3xl pt-4" id="averageResults"></p>
-                </div>
+      <div class="flex flex-col bg-white p-8 w-1/2 items-center">
+        <h1 class="text-4xl font-bold text-center color-white">Grade Average Calculator</h1>
+        <div class="flex flex-   mt-8 w-full mx-auto p-6 shadow-lg rounded-lg">
+          <form class="mx-8 w-1/2" id="sumForm">
+            <div class="mb-4">
+              <label for="number" class="block text-sm font-medium text-gray-700">Science</label>
+              <input type="text" id="num1" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
             </div>
-            
+            <div class="mb-4">
+              <label for="number" class="block text-sm font-medium text-gray-700">Math</label>
+              <input type="text" id="num2" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
+            </div>
+            <div class="mb-4">
+              <label for="number" class="block text-sm font-medium text-gray-700">English</label>
+              <input type="text" id="num3" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
+            </div>
+            <div class="mb-4">
+              <label for="number" class="block text-sm font-medium text-gray-700">Filipino</label>
+              <input type="text" id="num4" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
+            </div>
+            <div class="mb-4">
+              <label for="number" class="block text-sm font-medium text-gray-700">MAPEH</label>
+              <input type="text" id="num5" name="number" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Enter you grade">
+            </div>
+      
+            <button type="submit" class="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+          </form>
+          <div class="flex flex-col bg-black w-1/2 mx-8 text-center text-white items-center justify-center">
+            <h1 class="text-2xl font-light p-8 capitalize" id="displayAutoText">Your average will display here 😊</h1>
+            <p class="text-2xl capitalize" id="averageText"></p>
+            <p class="text-9xl mt-2" id="averageResults"></p>
+          </div>
         </div>
+          
+      </div>
     </div>
-<body>
     <script>
+    document.getElementById("sumForm").addEventListener('submit', function(e) {
+        e.preventDefault();
 
+        // Retrieve and parse input values
+        const number1 = parseInt(document.getElementById("num1").value) || 0;
+        const number2 = parseInt(document.getElementById("num2").value) || 0;
+        const number3 = parseInt(document.getElementById("num3").value) || 0;
+        const number4 = parseInt(document.getElementById("num4").value) || 0;
+        const number5 = parseInt(document.getElementById("num5").value) || 0;
 
+        // Calculate the average
+        const avg = (number1 + number2 + number3 + number4 + number5) / 5;
 
-        document.getElementById("sumForm").addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Update the result display
+        const result = document.getElementById("averageResults");
+        const avgText = document.getElementById("averageText");
+        const autoText = document.getElementById("displayAutoText");
 
-            const number1 = document.getElementById("num1").value;
-            const number2 = document.getElementById("num2").value;
-            const number3 = document.getElementById("num3").value;
-            const number4 = document.getElementById("num4").value;
-            const number5 = document.getElementById("num5").value;
+        // Remove autoText element if it exists
+        if (autoText) {
+            autoText.remove();
+        }
 
-            const avg = (parseInt(number1) + parseInt(number2) + parseInt(number3) + parseInt(number4) + parseInt(number5)) / 5;
+        // Update the text content for average display
+        if (avgText) {
+            avgText.textContent = "Your average is: ";
+        }
+        result.textContent = avg;
 
-            let result = document.getElementById("averageResults");
-            let avgText = document.getElementById("averageText");
-            let autoText = document.getElementById("displayAutoText");
-            
-            autoText.innerHTML = "";
-            avgText.textContent = "Your average is";
-            result.textContent = `${avg}`;            
-        });
-
+        // Clear input fields
+        document.getElementById("num1").value = "";
+        document.getElementById("num2").value = "";
+        document.getElementById("num3").value = "";
+        document.getElementById("num4").value = "";
+        document.getElementById("num5").value = "";
+    });
     </script>
-</body>
+  </body>
 </html>
